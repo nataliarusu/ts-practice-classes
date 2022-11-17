@@ -1,24 +1,24 @@
 "use strict";
-var Department = /** @class */ (function () {
-    function Department(n) {
-        this.employees = [];
+class Department {
+    constructor(n) {
+        this.employees = []; //force employee to be added only using addEmployee() method
         this.name = n;
     }
-    Department.prototype.describe = function () {
-        //should add that 'this' will be the instance of Department
-        console.log("Department: ".concat(this.name));
-    };
-    Department.prototype.addEmployee = function (employee) {
+    getDepartment() {
+        //'this' will be the instance of Department
+        return `Department: ${this.name}`;
+    }
+    addEmployee(employee) {
         this.employees.push(employee);
-    };
-    Department.prototype.printEmploeeInfo = function () {
+    }
+    printEmploeeInfo() {
         console.log(this.employees);
-    };
-    return Department;
-}());
-var devDepartment = new Department('Development'); //{name: 'Development'}
-devDepartment.describe(); //Department: Development
+    }
+}
+const devDepartment = new Department('Development'); //{name: 'Development'}
+console.log(devDepartment.getDepartment()); //Department: Development
 devDepartment.addEmployee('Max');
 devDepartment.addEmployee('Kate');
+//devDepartment.employees[2]='Jhon'; //error, private property
 devDepartment.printEmploeeInfo();
 //# sourceMappingURL=app.js.map
