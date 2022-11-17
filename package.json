@@ -1,0 +1,19 @@
+{
+  "name": "ts-config",
+  "version": "1.0.0",
+  "description": "Learning to classes in ts",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nataliarusu/ts-practice-classes"
+  },
+  "author": "Natalia Rusu",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/nataliarusu/ts-practice-classes/issues"
+  },
+  "homepage": "https://github.com/nataliarusu/ts-practice-classes#readme"
+}
