@@ -1,13 +1,13 @@
 "use strict";
 class Department {
+    //private and public infront of args it is shorthand initialization
+    //readonly means should be initialized once and shouldn't be changed thereafter (like const)
     constructor(name, id) {
         this.name = name;
         this.id = id;
         // private name: string;
         // private id: string;
         this.employees = []; //force employee to be added only using addEmployee() method
-        //private and public infront of args it is shorthand initialization
-        //instead of creating these 2 lines we can initialize properties in one line
         // this.name = name;
         //this.id = id;
     }

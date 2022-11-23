@@ -3,9 +3,9 @@ class Department {
   // private id: string;
   private employees: string[] = []; //force employee to be added only using addEmployee() method
 
-  constructor(private name: string, private id: string) {
-    //private and public infront of args it is shorthand initialization
-    //instead of creating these 2 lines we can initialize properties in one line
+  //private and public infront of args it is shorthand initialization
+  //readonly means should be initialized once and shouldn't be changed thereafter (like const)
+  constructor(private name: string, private readonly id: string) {
     // this.name = name;
     //this.id = id;
   }
