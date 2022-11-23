@@ -25,6 +25,9 @@ class ITDepartment extends Department {
         this.admins = admins;
     }
     addAdmin(employee) {
+        if (!this.employees.find(person => person === employee)) {
+            this.addEmployee(employee);
+        }
         this.admins.push(employee);
     }
     printAdminsInfo() {
@@ -45,10 +48,10 @@ class AccountingDepartment extends Department {
     }
 }
 const itDepartment = new ITDepartment('1', ['Dan'], ['Dan']);
-itDepartment.addEmployee('Kate'); //super class's method
 itDepartment.addAdmin('Kate'); //ITDepartment's method
 itDepartment.addEmployee('Mathew');
 itDepartment.addEmployee('Max');
+itDepartment.addAdmin('Max');
 itDepartment.printAdminsInfo(); //ITDepartment's method
 itDepartment.printEmploeesInfo(); //super class's method
 console.log(itDepartment);
