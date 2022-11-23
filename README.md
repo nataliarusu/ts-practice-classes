@@ -1,4 +1,6 @@
-### Learning
+# ts-practice-classes
+This is an introduction to classes in typescript repository for learning purposes only
+## Learning
 - Adding in constructor public or private infront of arguments makes shorthand initialization
 
     class Department{
@@ -58,4 +60,7 @@ equal to
 
         accountingDepartment.mostRecentReport='Report 2022'; //set
         const recentReport = accountingDepartment.mostRecentReport;//get returns value
+
+
+
 
