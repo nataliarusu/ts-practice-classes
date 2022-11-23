@@ -25,7 +25,7 @@ class ITDepartment extends Department {
         this.admins = admins;
     }
     addAdmin(employee) {
-        if (!this.employees.find(person => person === employee)) {
+        if (!this.employees.find((person) => person === employee)) {
             this.addEmployee(employee);
         }
         this.admins.push(employee);
@@ -35,6 +35,20 @@ class ITDepartment extends Department {
     }
 }
 class AccountingDepartment extends Department {
+    get mostRecentReport() {
+        if (this.reports.length) {
+            return this.reports[this.reports.length - 1]; //must return
+        }
+        else {
+            throw Error('No report found.');
+        }
+    }
+    set mostRecentReport(value) {
+        if (!value) {
+            throw Error('Please pass in a valid value!');
+        }
+        this.addReports(value);
+    }
     constructor(id, reports) {
         //2args
         super(id, 'Accounting', ['Anna', 'Bill']); //3 args as super class require
@@ -55,7 +69,11 @@ itDepartment.addAdmin('Max');
 itDepartment.printAdminsInfo(); //ITDepartment's method
 itDepartment.printEmploeesInfo(); //super class's method
 console.log(itDepartment);
-const accountingDepartment = new AccountingDepartment('2', ['Report 2022']);
+const accountingDepartment = new AccountingDepartment('2', ['Report 2020']);
 accountingDepartment.printEmploeesInfo(); //super class's method
+accountingDepartment.addReports('Report 2021');
+accountingDepartment.mostRecentReport = 'Report 2022';
+const recentReport = accountingDepartment.mostRecentReport; // because it is get we should call it without ()
 accountingDepartment.printReports();
+console.log(recentReport);
 //# sourceMappingURL=app.js.map

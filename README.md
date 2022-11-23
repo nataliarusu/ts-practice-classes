@@ -52,3 +52,10 @@ equal to
                 this.admins.push(employee);
             }
         }
+
+- get and set in class we access like a property, without ()
+
+
+        accountingDepartment.mostRecentReport='Report 2022'; //set
+        const recentReport = accountingDepartment.mostRecentReport;//get returns value
+
