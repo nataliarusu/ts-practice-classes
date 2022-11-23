@@ -30,9 +30,10 @@ equal to
         
         } //when we create an instance of Department we initialize id, and after that, we won't be able to change its value
 
-- <code>protected</code> vs <code>private</code>
-<code>private</code> properties are accessible only inside the class they defined and are not accessible in the class that inherited that class.<br>
-<code>protected</code> is like private, but unlike <code>private</code> they not just available in the class they defined but also in the classes which inherited the class where protected properies defined. If the property is <code>protected</code> it can't be changed from outside of the class it defined, but it can be accessible from the class based on parent class<br>
+- <code>protected</code> vs <code>private</code> and <code>public</code><br>
+  
+    <code>private</code> properties are accessible only inside the class they defined and are not accessible in the class that inherited that class.<br>
+    <code>protected</code> is like private, but unlike <code>private</code> they not just available in the class they defined but also in the classes which inherited the class where protected properies defined. If the property is <code>protected</code> it can't be changed from outside of the class it defined, but it can be accessible from the class based on parent class<br>
 
 
         class Department {    
@@ -54,6 +55,11 @@ equal to
                 this.admins.push(employee);
             }
         }
+    access:<br>
+    <code>private</code> for internal access<br> 
+    <code>protected</code> access for internal and inherited classes<br>
+    <code>public</code> access from everywhere<br>
+
 
 - get and set in class we access like a property, without ()
 
@@ -70,3 +76,6 @@ equal to
     Classes marked as <code>abstract</code> can't be instancieted. It is just a class to inherit from and forse classes which iherits it to have properties and methods marked as <code>abstract</code>.
     
         const department1= new Department();//ERROR 
+
+- <code>static</code> methods we can call directly on a class, not on an object created based on it. (Math.random() is an example of static method)
+- A singleton class is configured such that you don't create it with "new" but by calling a method which then ensures that only one instance of the class exists at any given time. (private consturtor and implemented logic to check instances)
