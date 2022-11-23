@@ -33,6 +33,9 @@ class ITDepartment extends Department {
     printAdminsInfo() {
         console.log(this.admins);
     }
+    describe() {
+        console.log('IT Department - T1');
+    }
 }
 class AccountingDepartment extends Department {
     get mostRecentReport() {
@@ -53,6 +56,9 @@ class AccountingDepartment extends Department {
         //2args
         super(id, 'Accounting', ['Anna', 'Bill']); //3 args as super class require
         this.reports = reports;
+    }
+    describe() {
+        console.log('Accounting Department - A1');
     }
     addReports(report) {
         this.reports.push(report);

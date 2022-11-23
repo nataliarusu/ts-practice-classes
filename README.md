@@ -61,6 +61,12 @@ equal to
         accountingDepartment.mostRecentReport='Report 2022'; //set
         const recentReport = accountingDepartment.mostRecentReport;//get returns value
 
+- <code>abstract</code> keyword allows to add to super class a method that we don't provide a logic/value in super class. It instructs that every class that inherits this super class(based on super class) should have this methods and should add its own logic to it. Abstract methods can only appear within an abstract class.
 
+        abstract class Department {
+            abstract describe(this: Department): void;
+        }
 
-
+    Classes marked as <code>abstract</code> can't be instancieted. It is just a class to inherit from and forse classes which iherits it to have properties and methods marked as <code>abstract</code>.
+    
+        const department1= new Department();//ERROR 

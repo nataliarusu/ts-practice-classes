@@ -1,4 +1,4 @@
-class Department {
+abstract class Department {
   //private employees: string[] = []; //force employee to be added only using addEmployee() method
   constructor(
     private readonly id: string,
@@ -18,6 +18,7 @@ class Department {
   printEmploeesInfo() {
     console.log(this.employees);
   }
+  abstract describe(this: Department): void;
 }
 
 class ITDepartment extends Department {
@@ -33,6 +34,9 @@ class ITDepartment extends Department {
   }
   printAdminsInfo() {
     console.log(this.admins);
+  }
+  describe(this: Department): void {
+    console.log('IT Department - T1');
   }
 }
 
@@ -54,6 +58,9 @@ class AccountingDepartment extends Department {
   constructor(id: string, private reports: string[]) {
     //2args
     super(id, 'Accounting', ['Anna', 'Bill']); //3 args as super class require
+  }
+  describe(this: Department): void {
+    console.log('Accounting Department - A1');
   }
   addReports(report: string) {
     this.reports.push(report);
