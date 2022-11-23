@@ -1,11 +1,10 @@
 class Department {
-  // private name: string;
-  // private id: string;
-  private employees: string[] = []; //force employee to be added only using addEmployee() method
-
-  //private and public infront of args it is shorthand initialization
-  //readonly means should be initialized once and shouldn't be changed thereafter (like const)
-  constructor(private name: string, private readonly id: string) {
+  //private employees: string[] = []; //force employee to be added only using addEmployee() method
+  constructor(
+    private readonly id: string,
+    private name: string,
+    private employees: string[]
+  ) {
     // this.name = name;
     //this.id = id;
   }
@@ -16,15 +15,46 @@ class Department {
   addEmployee(employee: string) {
     this.employees.push(employee);
   }
-  printEmploeeInfo() {
+  printEmploeesInfo() {
     console.log(this.employees);
   }
 }
 
-const devDepartment = new Department('Development', '1'); //{name: 'Development'}
-console.log(devDepartment.getDepartment()); //Department: Development
-devDepartment.addEmployee('Max');
-devDepartment.addEmployee('Kate');
-//devDepartment.employees[2]='Jhon'; //error, private property
+class ITDepartment extends Department {
+  constructor(id: string, employees: string[], public admins: string[]) {
+    super(id, 'IT', employees); //hardcoding the name because ITDepatment class
+  }
 
-devDepartment.printEmploeeInfo();
+  addAdmin(employee: string) {
+    this.admins.push(employee);
+  }
+  printAdminsInfo() {
+    console.log(this.admins);
+  }
+}
+
+class AccountingDepartment extends Department {
+  constructor(id: string, private reports: string[]) {
+    //2args
+    super(id, 'Accounting', ['Anna', 'Bill']); //3 args as super class require
+  }
+  addReports(report: string) {
+    this.reports.push(report);
+  }
+  printReports() {
+    console.log(this.reports);
+  }
+}
+
+const itDepartment = new ITDepartment('1', ['Dan'], ['Dan']);
+itDepartment.addEmployee('Kate'); //super class's method
+itDepartment.addAdmin('Kate'); //ITDepartment's method
+itDepartment.addEmployee('Mathew');
+itDepartment.addEmployee('Max');
+itDepartment.printAdminsInfo(); //ITDepartment's method
+itDepartment.printEmploeesInfo(); //super class's method
+console.log(itDepartment);
+
+const accountingDepartment = new AccountingDepartment('2', ['Report 2022']);
+accountingDepartment.printEmploeesInfo();//super class's method
+accountingDepartment.printReports();
